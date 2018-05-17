@@ -15,10 +15,14 @@ fn main() {
         // Do not generate unstable Rust code that
         // requires a nightly rustc and enabling
         // unstable features.
-        .no_unstable_rust()
         // The input header we would like to generate
         // bindings for.
-        .header("sparsepp/sparsepp.h")
+        .opaque_type("std::.*")
+        .enable_cxx_namespaces()
+        .clang_arg("-xc++")
+        .clang_arg("-std=c++11")
+        //.clang_arg(format!("-I{}", base))
+        .header("sparsepp/sparsepp.hpp")
         // Finish the builder and generate the bindings.
         .generate()
         // Unwrap the Result and panic on failure.
