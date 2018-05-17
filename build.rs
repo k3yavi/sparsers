@@ -18,7 +18,7 @@ fn main() {
         .no_unstable_rust()
         // The input header we would like to generate
         // bindings for.
-        .header("sparsepp.h")
+        .header("sparsepp/sparsepp/spp_memory.h")
         // Finish the builder and generate the bindings.
         .generate()
         // Unwrap the Result and panic on failure.
